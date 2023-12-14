@@ -6,15 +6,15 @@ class Car {
         this.carDom = carDom;
         this.speed = 0;
         this.angle = 0;
-        this.x = 0; // Posición x inicial del coche
-        this.y = 0; // Posición y inicial del coche
+        this.x = 0; 
+        this.y = 0; 
     }
 
     reset() {
         this.speed = 0;
         this.angle = 0;
-        this.x = 0; // Restablece la posición x
-        this.y = 0; // Restablece la posición y
+        this.x = 0; 
+        this.y = 0; 
         this.updatePosition();
     }
 
@@ -30,7 +30,7 @@ class Car {
         } else if (keyList.includes('ArrowDown')) {
             this.speed = Math.max(this.speed - SPEED_DOWN, -SPEED_LIMIT);
         } else {
-            this.speed *= SPEED_INERTIA; // Reduce la velocidad gradualmente
+            this.speed *= SPEED_INERTIA; 
         }
     }
 
@@ -47,7 +47,6 @@ class Car {
         const deltaX = this.speed * Math.cos(radianAngle);
         const deltaY = this.speed * Math.sin(radianAngle);
 
-        // Acumula el movimiento
         this.x += deltaX;
         this.y += deltaY;
 
@@ -55,7 +54,6 @@ class Car {
     }
 
     updatePosition() {
-        // Aplica la posición acumulada y la rotación
         this.carDom.style.transform = `translate(${this.x}px, ${this.y}px) rotate(${this.angle}deg)`;
     }
 }

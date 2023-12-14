@@ -1,6 +1,6 @@
-import { Car } from './Car.js'; // Asegúrate de que el archivo Car.js esté implementado y en la ruta correcta
-import { GamePad } from './GamePad.js'; // Asegúrate de que el archivo GamePad.js esté implementado y en la ruta correcta
-import { INIT_LIVES, FRAME_RATE, TRACK_SIZE } from './consts/consts.js'; // Importa las constantes necesarias
+import { Car } from './Car.js'; 
+import { GamePad } from './GamePad.js'; 
+import { INIT_LIVES, FRAME_RATE, TRACK_SIZE } from './consts/consts.js'; 
 
 class GameApp {
     constructor(trackSelector, carSelector, livesSelector) {
@@ -35,8 +35,6 @@ class GameApp {
         if (!this.isCarInBounds(x, y)) {
             this.crash();
         }
-
-        // Actualiza la interfaz del juego aquí si es necesario
     }
 
     isCarInBounds(x, y) {
@@ -56,7 +54,7 @@ class GameApp {
     finish() {
         clearInterval(this.tick);
         this.keypad.destroy();
-        alert('Game Over!'); // Puedes cambiar esto por una lógica de finalización de juego más elaborada
+        alert('Game Over!'); 
     }
 }
 
