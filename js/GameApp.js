@@ -11,47 +11,56 @@ class GameApp {
         this.lives = INIT_LIVES;
         this.keypad = new GamePad();
         this.tick = null;
-        this.init();
+        this.#init();
     }
 
-    init() {
+    #init() {
         this.lives = INIT_LIVES;
         this.livesDom.textContent = this.lives;
         this.car.reset();
         this.keypad.init();
-        this.startGameLoop();
+        this.#startGameLoop();
     }
 
-    startGameLoop() {
+    #startGameLoop() {
         this.tick = setInterval(() => {
-            this.render();
+            this.#render();
         }, FRAME_RATE);
     }
 
-    render() {
+    #render() {
         const keysPressed = this.keypad.getKeyList();
-        const { x, y } = this.car.update(keysPressed);
+        this.car.update(keysPressed);
 
-        if (!this.isCarInBounds(x, y)) {
-            this.crash();
+        if (!this.#isCarInBounds()) {
+            this.#crash();
         }
     }
 
-    isCarInBounds(x, y) {
-        return x >= 0 && x <= TRACK_SIZE && y >= 0 && y <= TRACK_SIZE;
+    #isCarInBounds() {
+        const carRect = this.carDom.getBoundingClientRect();
+        const trackRect = this.trackDom.getBoundingClientRect();
+
+        return carRect.left >= trackRect.left &&
+               carRect.right <= trackRect.right &&
+               carRect.top >= trackRect.top &&
+               carRect.bottom <= trackRect.bottom;
     }
 
-    crash() {
+    #crash() {
         this.lives -= 1;
         this.livesDom.textContent = this.lives;
+
         if (this.lives <= 0) {
-            this.finish();
+            setTimeout(() => {
+                this.#finish();
+            }, 0);
         } else {
             this.car.reset();
         }
     }
 
-    finish() {
+    #finish() {
         clearInterval(this.tick);
         this.keypad.destroy();
         alert('Game Over!'); 
