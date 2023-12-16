@@ -63,7 +63,16 @@ class GameApp {
     #finish() {
         clearInterval(this.tick);
         this.keypad.destroy();
-        alert('Game Over!'); 
+        document.getElementById('gameOverPopup').classList.add('show');
+    }
+
+    restartGame() {
+        this.lives = INIT_LIVES;
+        this.livesDom.textContent = this.lives;
+        this.car.reset();
+        this.keypad.init();
+        this.#startGameLoop();
+        document.getElementById('gameOverPopup').classList.remove('show');
     }
 }
 
