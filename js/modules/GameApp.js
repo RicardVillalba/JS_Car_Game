@@ -19,6 +19,9 @@ class GameApp {
         this.livesDom.textContent = this.lives;
         this.car.reset();
         this.keypad.init();
+        this.trackDom.style.width = TRACK_SIZE + 'px';
+        this.trackDom.style.height = TRACK_SIZE + 'px';
+        
         this.#startGameLoop();
     }
 
