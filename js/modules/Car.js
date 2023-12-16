@@ -1,5 +1,5 @@
-import { SPEED_LIMIT, SPEED_UP, SPEED_DOWN, SPEED_INERTIA, TURN_AMOUNT } from './consts/consts.js';
-import { Trigonometry } from './utils/trigonometry.js';
+import { SPEED_LIMIT, SPEED_UP, SPEED_DOWN, SPEED_INERTIA, TURN_AMOUNT } from '../consts/consts.js';
+import { Trigonometry } from '../utils/trigonometry.js';
 
 class Car {
 

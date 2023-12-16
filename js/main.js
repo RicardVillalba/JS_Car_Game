@@ -1,4 +1,4 @@
-import { GameApp } from './GameApp.js';
+import { GameApp } from './modules/GameApp.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const gameApp = new GameApp('.js-track', '.js-car', '.js-lives');

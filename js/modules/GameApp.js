@@ -1,6 +1,6 @@
 import { Car } from './Car.js'; 
 import { GamePad } from './GamePad.js'; 
-import { INIT_LIVES, FRAME_RATE, TRACK_SIZE } from './consts/consts.js'; 
+import { INIT_LIVES, FRAME_RATE, TRACK_SIZE } from '../consts/consts.js'; 
 
 class GameApp {
     constructor(trackSelector, carSelector, livesSelector) {
